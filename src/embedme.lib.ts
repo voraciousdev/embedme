@@ -328,7 +328,7 @@ function getReplacement(
 
   lines = lines.map(line => line.slice(minimumLeadingSpaces));
 
-  const outputCode = lines.join(lineEnding);
+  const outputCode = lines.join(lineEnding).trim();
 
   if (/```/.test(outputCode)) {
     log({ returnSnippet: substr }, chalk =>
@@ -355,11 +355,6 @@ function getReplacement(
 
   if (replacement === substr) {
     log({ returnSnippet: substr }, chalk => chalk.gray(`No changes required, already up to date`));
-    return substr;
-  }
-
-  if (replacement.slice(0, -3).trimRight() === substr.slice(0, -3).trimRight()) {
-    log({ returnSnippet: substr }, chalk => chalk.gray(`Changes are trailing whitespace only, ignoring`));
     return substr;
   }
 

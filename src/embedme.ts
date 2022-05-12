@@ -95,7 +95,7 @@ sourceFiles.forEach((source, i) => {
     return;
   }
 
-  const sourceText = readFileSync(source, 'utf-8');
+  const sourceText = readFileSync(source, 'utf-8').trim();
 
   const outText = embedme(sourceText, resolvedPath, options);
 
@@ -111,7 +111,7 @@ sourceFiles.forEach((source, i) => {
       log(chalk =>
         chalk.magenta(`  Writing ${chalk.underline(relative(process.cwd(), resolvedPath))} with embedded changes.`),
       );
-      writeFileSync(source, outText);
+      writeFileSync(source, outText.replace(/\n*$/, '\n'));
     } else {
       log(chalk =>
         chalk.magenta(`  No changes to write for ${chalk.underline(relative(process.cwd(), resolvedPath))}`),
