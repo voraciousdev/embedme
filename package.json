@@ -5,7 +5,6 @@
   "repository": "https://github.com/zakhenry/embedme",
   "author": "Zak Henry",
   "license": "MIT",
-  "private": false,
   "bin": "./dist/embedme.js",
   "scripts": {
     "build": "tsc",

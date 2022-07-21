@@ -224,7 +224,7 @@ function getReplacement(inputFilePath, options, logMethod, substr, leadingSpaces
     }
     let replacement = !!commentEmbedOverrideFilepath || options.stripEmbedComment
         ? `\`\`\`${codeExtension}${lineEnding}${outputCode}${lineEnding}\`\`\``
-        : `\`\`\`${codeExtension}${lineEnding}${firstLine.trim()}${lineEnding}${lineEnding}${outputCode}${lineEnding}\`\`\``;
+        : `\`\`\`${codeExtension}${lineEnding}${firstLine.trim()}${lineEnding}${outputCode}${lineEnding}\`\`\``;
     if (leadingSpaces.length) {
         replacement = replacement
             .split(lineEnding)
